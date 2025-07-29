@@ -1,4 +1,4 @@
-# Enchancer.sh - Video upscaler script for Linux!
+# Enchance.sh - Video upscaler script for Linux!
 ### Note: GPU / RAM hungry
 This script is powered by [AI upscaler](https://github.com/tool3/upscaler-cli)
 
