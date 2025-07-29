@@ -2,6 +2,17 @@
 rm -rf upscaled frames
 mkdir -p frames upscaled
 
+npmstat=$(npm -v | grep "command not found")
+upscalerstat=$(npm list -g --depth=0 | grep "upscaler-cli")
+
+if [["$npmstat" == "command not found"]]; then
+  echo "NPM not found!"
+  exit 0
+fi
+if [[ "$upscalerstat" != "upscaler-cli" ]]; then
+  npm install upscaler-cli
+fi
+
 echo "What video to enchance?"
 read file
 fps=$(ffmpeg -i "$file" 2>&1 | grep -oP '(\d+(\.\d+)?) fps' | grep -oP '\d+(\.\d+)?')
